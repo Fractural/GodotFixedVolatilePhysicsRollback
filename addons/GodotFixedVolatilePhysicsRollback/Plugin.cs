@@ -1,4 +1,5 @@
 using Fractural.Plugin;
+using Fractural.Plugin.AssetsRegistry;
 using Godot;
 using Godot.Attributes;
 
@@ -12,6 +13,7 @@ namespace Volatile.GodotEngine.Rollback.Plugin
 
         protected override void Load()
         {
+            AssetsRegistry = new EditorAssetsRegistry(this);
             AddSubPlugin(new NodesPlugin());
         }
 

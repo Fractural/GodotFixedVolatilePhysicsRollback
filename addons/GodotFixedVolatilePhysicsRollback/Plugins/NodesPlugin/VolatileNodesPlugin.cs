@@ -11,16 +11,16 @@ namespace Volatile.GodotEngine.Rollback.Plugin
         {
             Plugin.AddCustomType(nameof(NetworkVoltNode2D), nameof(Node2D),
                 GD.Load<CSharpScript>("res://addons/GodotFixedVolatilePhysicsRollback/Core/NetworkVoltNode2D.cs"),
-                GD.Load<Texture>("res://addons/GodotFixedVolatilePhysicsRollback/Assets/NetworkVoltNode2D.svg"));
+                Plugin.AssetsRegistry.LoadAsset<Texture>("res://addons/GodotFixedVolatilePhysicsRollback/Assets/NetworkVoltNode2D.svg"));
             Plugin.AddCustomType(nameof(NetworkVolatileArea), nameof(Node2D),
                 GD.Load<CSharpScript>("res://addons/GodotFixedVolatilePhysicsRollback/Core/NetworkVolatileArea.cs"),
-                GD.Load<Texture>("res://addons/GodotFixedVolatilePhysicsRollback/Assets/NetworkVoltArea.svg"));
+                Plugin.AssetsRegistry.LoadAsset<Texture>("res://addons/GodotFixedVolatilePhysicsRollback/Assets/NetworkVoltArea.svg"));
             Plugin.AddCustomType(nameof(NetworkVolatileKinematicBody), nameof(Node2D),
                 GD.Load<CSharpScript>("res://addons/GodotFixedVolatilePhysicsRollback/Core/NetworkVolatileKinematicBody.cs"),
-                GD.Load<Texture>("res://addons/GodotFixedVolatilePhysicsRollback/Assets/NetworkVoltKinematicBody.svg"));
+                Plugin.AssetsRegistry.LoadAsset<Texture>("res://addons/GodotFixedVolatilePhysicsRollback/Assets/NetworkVoltKinematicBody.svg"));
             Plugin.AddCustomType(nameof(NetworkVolatileRigidBody), nameof(Node2D),
                 GD.Load<CSharpScript>("res://addons/GodotFixedVolatilePhysicsRollback/Core/NetworkVolatileRigidBody.cs"),
-                GD.Load<Texture>("res://addons/GodotFixedVolatilePhysicsRollback/Assets/NetworkVoltRigidBody.svg"));
+                Plugin.AssetsRegistry.LoadAsset<Texture>("res://addons/GodotFixedVolatilePhysicsRollback/Assets/NetworkVoltRigidBody.svg"));
         }
 
         public override void Unload()
