@@ -138,14 +138,14 @@ DebugDraw = true
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 
 [node name="ClientPlayer" parent="VolatileWorld" instance=ExtResource( 2 )]
-position = Vector2( 159, 283 )
+position = Vector2( 193, 289 )
 _speed = PoolByteArray(  )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 159, 0, 0, 0, 0, 0, 0, 0, 27, 1, 0, 0 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 193, 0, 0, 0, 0, 0, 0, 0, 33, 1, 0, 0 )
 
 [node name="ServerPlayer" parent="VolatileWorld" instance=ExtResource( 2 )]
-position = Vector2( 812, 263 )
+position = Vector2( 795, 287 )
 _speed = PoolByteArray(  )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 44, 3, 0, 0, 0, 0, 0, 0, 7, 1, 0, 0 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 27, 3, 0, 0, 0, 0, 0, 0, 31, 1, 0, 0 )
 
 [node name="Level" type="Node2D" parent="VolatileWorld"]
 script = ExtResource( 6 )
@@ -156,36 +156,36 @@ script = ExtResource( 7 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 
 [node name="VolatileRect" type="Node2D" parent="VolatileWorld/Level/VolatileStaticBody"]
-position = Vector2( 509, 563 )
+position = Vector2( 512, 561 )
 script = ExtResource( 5 )
 Editing = true
 DebugDraw = true
 _extents = PoolByteArray( 0, 0, 112, 182, 1, 2, 0, 0, 0, 0, 96, 5, 40, 0, 0, 0 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 253, 1, 0, 0, 0, 0, 0, 0, 51, 2, 0, 0 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 49, 2, 0, 0 )
 
 [node name="VolatileRect2" type="Node2D" parent="VolatileWorld/Level/VolatileStaticBody"]
-position = Vector2( 509, 40 )
+position = Vector2( 510, 41 )
 script = ExtResource( 5 )
 Editing = true
 DebugDraw = true
 _extents = PoolByteArray( 0, 0, 112, 182, 1, 2, 0, 0, 0, 0, 96, 5, 40, 0, 0, 0 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 253, 1, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 254, 1, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0 )
 
 [node name="VolatileRect3" type="Node2D" parent="VolatileWorld/Level/VolatileStaticBody"]
-position = Vector2( 38, 300 )
+position = Vector2( 40, 295 )
 script = ExtResource( 5 )
 Editing = true
 DebugDraw = true
 _extents = PoolByteArray( 0, 0, 232, 137, 38, 0, 0, 0, 0, 0, 46, 90, 229, 0, 0, 0 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 0, 44, 1, 0, 0 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 39, 1, 0, 0 )
 
 [node name="VolatileRect4" type="Node2D" parent="VolatileWorld/Level/VolatileStaticBody"]
-position = Vector2( 983, 300 )
+position = Vector2( 985, 301 )
 script = ExtResource( 5 )
 Editing = true
 DebugDraw = true
 _extents = PoolByteArray( 0, 0, 232, 137, 38, 0, 0, 0, 0, 0, 46, 90, 229, 0, 0, 0 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 215, 3, 0, 0, 0, 0, 0, 0, 44, 1, 0, 0 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 217, 3, 0, 0, 0, 0, 0, 0, 45, 1, 0, 0 )
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/LocalButton" to="." method="OnLocalButtonPressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/OnlineButton" to="." method="OnOnlineButtonPressed"]
