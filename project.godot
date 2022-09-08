@@ -37,7 +37,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GodotMonoPhysicsRollbackDemo"
+config/name="GodotFixedVolatilePhysicsRollback"
 run/main_scene="res://Game/Scenes/Main.tscn"
 config/icon="res://icon.png"
 
@@ -134,6 +134,8 @@ player1_teleport={
 
 [network]
 
+rollback/interpolation=true
+rollback/spawn_manager/reuse_despawned_nodes=true
 rollback/classes/message_serializer="res://Game/Scripts/CustomMessageSerializer.cs"
 rollback/debug/rollback_ticks=1
 rollback/debug/random_rollback_ticks=3

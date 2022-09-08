@@ -140,7 +140,10 @@ namespace Game
         {
             if (oldState.Get("teleporting", false) || newState.Get("teleporting", false))
                 return;
-            Position = Utils.Lerp((Vector2)oldState["position"], (Vector2)newState["position"], weight);
+            var oldTransform = VoltType.Deserialize<VoltTransform2D>((byte[])oldState["transform"]);
+            var newTransform = VoltType.Deserialize<VoltTransform2D>((byte[])newState["transform"]);
+
+            GlobalFixedTransform = oldTransform.InterpolateWith(newTransform, (Fix64)weight);
         }
 
         public void Seed(NetworkRandomNumberGenerator johnny)

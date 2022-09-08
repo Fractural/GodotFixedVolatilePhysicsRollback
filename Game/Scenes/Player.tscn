@@ -17,6 +17,7 @@ _speed = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 
 [node name="NetworkRandomNumberGenerator" type="Node" parent="."]
@@ -26,5 +27,5 @@ script = ExtResource( 3 )
 script = ExtResource( 6 )
 Editing = true
 DebugDraw = true
-_radius = PoolByteArray( 0, 128, 245, 158, 31, 0, 0, 0 )
+_radius = PoolByteArray( 0, 192, 150, 240, 31, 0, 0, 0 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
