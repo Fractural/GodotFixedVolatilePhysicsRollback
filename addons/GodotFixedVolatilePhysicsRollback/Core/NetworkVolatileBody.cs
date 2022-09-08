@@ -24,9 +24,9 @@ namespace Volatile.GodotEngine.Rollback
 
         public override string _GetConfigurationWarning()
         {
-            var volatileWorld = this.GetAncestor<VolatileWorld>(false);
+            var volatileWorld = this.GetAncestor<NetworkVolatileWorld>(false);
             if (volatileWorld == null)
-                return $"This node must be a descendant of a VolatileWorld.";
+                return $"This node must be a descendant of a {nameof(NetworkVolatileWorld)}.";
 
             var shapes = this.GetDescendants<VolatileShape>();
             if (shapes.Count == 0)
@@ -75,10 +75,12 @@ namespace Volatile.GodotEngine.Rollback
 
         protected abstract VoltBody CreateBody(VoltWorld world, VoltShape[] shapes);
 
-        public void _NetworkProcess(Dictionary input)
+        #region Network
+        public virtual void _NetworkProcess(Dictionary input)
         {
             GlobalFixedPosition = Body.Position;
             GlobalFixedRotation = Body.Angle;
         }
+        #endregion
     }
 }
