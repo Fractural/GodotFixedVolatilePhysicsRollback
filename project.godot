@@ -33,7 +33,7 @@ _global_script_class_icons={
 [FracturalCommons]
 
 "Generate CSharp Scripts Table"=false
-"Generate Version Preprocessor Defines"=false
+"Generate Version Preprocessor Defines"=true
 
 [application]
 
