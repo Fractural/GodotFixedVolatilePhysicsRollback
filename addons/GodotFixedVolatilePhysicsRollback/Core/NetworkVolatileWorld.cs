@@ -1,22 +1,23 @@
 ﻿using Godot;
 using Godot.Collections;
 using GodotRollbackNetcode;
-using Volatile.GodotEngine;
 
-namespace Game
+namespace Volatile.GodotEngine.Rollback
 {
     [Tool]
     public class NetworkVolatileWorld : VolatileWorld, INetworkProcess
     {
         public override void _Ready()
         {
-            ProcessSelf = false;
             base._Ready();
+
+            ProcessSelf = false;
         }
 
         public void _NetworkProcess(Dictionary input)
         {
             World.Update();
+            Update();
         }
     }
 }

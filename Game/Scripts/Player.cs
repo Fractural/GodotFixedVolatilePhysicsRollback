@@ -5,11 +5,12 @@ using GodotRollbackNetcode;
 using System;
 using Volatile;
 using Volatile.GodotEngine;
+using Volatile.GodotEngine.Rollback;
 
 namespace Game
 {
     [Tool]
-    public class Player : VolatileKinematicBody, IGetLocalInput, INetworkProcess, INetworkSerializable, IPredictRemoteInput, IInterpolateState
+    public class Player : NetworkVolatileKinematicBody, IGetLocalInput, INetworkProcess, INetworkSerializable, IPredictRemoteInput, IInterpolateState
     {
         [Export]
         PackedScene bombPrefab;
