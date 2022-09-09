@@ -196,6 +196,26 @@ _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 position = Vector2( 694, 288 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 182, 2, 0, 0, 0, 0, 0, 0, 32, 1, 0, 0 )
 
+[node name="Debris2" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 348, 262 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 92, 1, 0, 0, 0, 0, 0, 0, 6, 1, 0, 0 )
+
+[node name="Debris3" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 661, 341 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 149, 2, 0, 0, 0, 0, 0, 0, 85, 1, 0, 0 )
+
+[node name="Debris4" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 626, 285 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 114, 2, 0, 0, 0, 0, 0, 0, 29, 1, 0, 0 )
+
+[node name="Debris5" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 380, 322 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 124, 1, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0 )
+
+[node name="Debris6" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 300, 308 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 44, 1, 0, 0, 0, 0, 0, 0, 52, 1, 0, 0 )
+
 [node name="BombSpawner" parent="VolatileWorld" instance=ExtResource( 10 )]
 position = Vector2( 327, 423 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 71, 1, 0, 0, 0, 0, 0, 0, 167, 1, 0, 0 )
