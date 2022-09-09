@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Game/Scripts/Main.cs" type="Script" id=1]
 [ext_resource path="res://Game/Scenes/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://addons/GodotFixedVolatilePhysics/Core/VolatileBodies/VolatileStaticBody.cs" type="Script" id=7]
 [ext_resource path="res://Game/Scenes/Debris.tscn" type="PackedScene" id=8]
 [ext_resource path="res://FPSLabel.gd" type="Script" id=9]
+[ext_resource path="res://Game/Scenes/BombSpawner.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -194,6 +195,14 @@ _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 [node name="Debris" parent="VolatileWorld" instance=ExtResource( 8 )]
 position = Vector2( 694, 288 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 182, 2, 0, 0, 0, 0, 0, 0, 32, 1, 0, 0 )
+
+[node name="BombSpawner" parent="VolatileWorld" instance=ExtResource( 10 )]
+position = Vector2( 327, 423 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 71, 1, 0, 0, 0, 0, 0, 0, 167, 1, 0, 0 )
+
+[node name="BombSpawner2" parent="VolatileWorld" instance=ExtResource( 10 )]
+position = Vector2( 606, 172 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 94, 2, 0, 0, 0, 0, 0, 0, 172, 0, 0, 0 )
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/LocalButton" to="." method="OnLocalButtonPressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/OnlineButton" to="." method="OnOnlineButtonPressed"]

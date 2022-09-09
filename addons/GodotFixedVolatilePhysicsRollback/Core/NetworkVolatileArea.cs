@@ -7,13 +7,10 @@ using System.Linq;
 namespace Volatile.GodotEngine.Rollback
 {
     [Tool]
-    public class NetworkVolatileArea : NetworkVolatileBody, INetworkProcess
+    public class NetworkVolatileArea : NetworkVolatileBody, IVolatileArea
     {
-        public delegate void BodyEnteredDelegate(VolatileBody body);
-        public delegate void BodyExitedDelegate(VolatileBody body);
-
-        public BodyEnteredDelegate BodyEntered;
-        public BodyExitedDelegate BodyExited;
+        public event BodyEnteredDelegate BodyEntered;
+        public event BodyExitedDelegate BodyExited;
 
         /// <summary>
         /// Should the area keep track of what bodies are inside of it at 
@@ -27,11 +24,11 @@ namespace Volatile.GodotEngine.Rollback
         /// <summary>
         /// All the bodies that this area was previous colliding with.
         /// </summary>
-        protected HashSet<VolatileBody> PrevCollidingWith { get; set; }
+        protected HashSet<IVolatileBody> PrevCollidingWith { get; set; }
         /// <summary>
         /// All the bodies that this area is currently colliding with.
         /// </summary>
-        protected HashSet<VolatileBody> CurrCollidingWith { get; set; }
+        protected HashSet<IVolatileBody> CurrCollidingWith { get; set; }
 
         protected override VoltBody CreateBody(VoltWorld world, VoltShape[] shapes)
             => world.CreateTriggerBody(GlobalFixedPosition, GlobalFixedRotation, shapes, Layer, Mask);
@@ -49,37 +46,39 @@ namespace Volatile.GodotEngine.Rollback
             if (Engine.EditorHint) return;
             if (AutoQuery)
             {
-                PrevCollidingWith = new HashSet<VolatileBody>();
-                CurrCollidingWith = new HashSet<VolatileBody>();
+                PrevCollidingWith = new HashSet<IVolatileBody>();
+                CurrCollidingWith = new HashSet<IVolatileBody>();
             }
         }
 
         protected override void OnBodyCollided(VoltBody body)
         {
             base.OnBodyCollided(body);
-            if (AutoQuery && body.UserData is VolatileBody volatileBody)
+            if (AutoQuery && body.UserData is IVolatileBody volatileBody)
                 CurrCollidingWith.Add(volatileBody);
         }
 
-        protected virtual void OnBodyEntered(VolatileBody body)
+        protected virtual void OnBodyEntered(IVolatileBody body)
         {
             BodyEntered?.Invoke(body);
         }
 
-        protected virtual void OnBodyExited(VolatileBody body)
+        protected virtual void OnBodyExited(IVolatileBody body)
         {
             BodyExited?.Invoke(body);
         }
 
         #region Network
         public const string STATE_PREV_COLLIDING_WITH = "prev_colliding_with";
+        public const string STATE_CURR_COLLIDING_WITH = "curr_colliding_with";
 
         public override Dictionary _SaveState()
         {
             var dict = base._SaveState();
             if (AutoQuery)
             {
-                dict[STATE_PREV_COLLIDING_WITH] = PrevCollidingWith.Select(x => x.GetPath()).ToArray();
+                dict[STATE_PREV_COLLIDING_WITH] = PrevCollidingWith.Select(x => x.Node.GetPath().ToString()).ToArray();
+                dict[STATE_CURR_COLLIDING_WITH] = CurrCollidingWith.Select(x => x.Node.GetPath().ToString()).ToArray();
             }
             return dict;
         }
@@ -90,17 +89,20 @@ namespace Volatile.GodotEngine.Rollback
             if (AutoQuery)
             {
                 var prevCollidingWithPaths = state.Get<string[]>(STATE_PREV_COLLIDING_WITH);
-
-                // ASSUMPTION: All nodes are already loaded
-                // TODO: Test this to see if this assumption is true
                 PrevCollidingWith.Clear();
                 foreach (var path in prevCollidingWithPaths)
-                    PrevCollidingWith.Add(GetNode<VolatileBody>(path));
+                    PrevCollidingWith.Add(GetNode<IVolatileBody>(path));
+
+                var currCollidingWithPaths = state.Get<string[]>(STATE_CURR_COLLIDING_WITH);
+                CurrCollidingWith.Clear();
+                foreach (var path in currCollidingWithPaths)
+                    CurrCollidingWith.Add(GetNode<IVolatileBody>(path));
             }
         }
 
-        public virtual void _NetworkProcess(Dictionary input)
+        public override void _NetworkPostprocess(Dictionary input)
         {
+            base._NetworkPostprocess(input);
             if (AutoQuery)
             {
                 foreach (var oldCollidingBody in PrevCollidingWith)

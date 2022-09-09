@@ -8,9 +8,9 @@ using System.Linq;
 namespace Volatile.GodotEngine.Rollback
 {
     [Tool]
-    public abstract class NetworkVolatileBody : NetworkVoltNode2D, INetworkPostProcess, IInterpolateState
+    public abstract class NetworkVolatileBody : NetworkVoltNode2D, INetworkPostProcess, IInterpolateState, IVolatileBody
     {
-        public delegate void BodyCollidedDelegate(VolatileBody body);
+        VoltNode2D IVolatileBody.Node => this;
         public event BodyCollidedDelegate BodyCollided;
 
         public VolatileShape[] Shapes { get; set; }
@@ -69,7 +69,7 @@ namespace Volatile.GodotEngine.Rollback
 
         protected virtual void OnBodyCollided(VoltBody body)
         {
-            if (body.UserData is VolatileBody volatileBody)
+            if (body.UserData is IVolatileBody volatileBody)
                 BodyCollided?.Invoke(volatileBody);
         }
 
