@@ -81,9 +81,8 @@ namespace Game
             return input;
         }
 
-        public override void _NetworkProcess(Dictionary input)
+        public virtual void _NetworkProcess(Dictionary input)
         {
-            base._NetworkProcess(input);
             var inputVector = input.Get("input_vector", Vector2.Zero).ToVoltVector2();
             if (inputVector != VoltVector2.Zero)
             {
@@ -95,10 +94,12 @@ namespace Game
             {
                 Speed = Fix64.Zero;
             }
+        }
 
-            // Update body position
-            GlobalFixedPosition = Body.Position;
-            GlobalFixedRotation = Body.Angle;
+        public override void _NetworkPostprocess(Dictionary input)
+        {
+            // Sync transform with body position
+            base._NetworkPostprocess(input);
 
             if (input.Get("drop_bomb", false))
                 SyncManager.Global.Spawn(nameof(Bomb), GetParent(), bombPrefab,

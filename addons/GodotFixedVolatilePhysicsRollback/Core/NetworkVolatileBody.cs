@@ -8,7 +8,7 @@ using System.Linq;
 namespace Volatile.GodotEngine.Rollback
 {
     [Tool]
-    public abstract class NetworkVolatileBody : NetworkVoltNode2D, INetworkProcess, IInterpolateState
+    public abstract class NetworkVolatileBody : NetworkVoltNode2D, INetworkPostProcess, IInterpolateState
     {
         public delegate void BodyCollidedDelegate(VolatileBody body);
         public event BodyCollidedDelegate BodyCollided;
@@ -76,7 +76,7 @@ namespace Volatile.GodotEngine.Rollback
         protected abstract VoltBody CreateBody(VoltWorld world, VoltShape[] shapes);
 
         #region Network
-        public virtual void _NetworkProcess(Dictionary input)
+        public virtual void _NetworkPostprocess(Dictionary input)
         {
             GlobalFixedPosition = Body.Position;
             GlobalFixedRotation = Body.Angle;
