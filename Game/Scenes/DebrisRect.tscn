@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/GodotFixedVolatilePhysicsRollback/Core/NetworkVolatileRigidBody.cs" type="Script" id=1]
+[ext_resource path="res://addons/GodotFixedVolatilePhysics/Core/VolatileShapes/VolatileRect.cs" type="Script" id=2]
+
+[node name="DebrisRect" type="Node2D" groups=["network_sync"]]
+script = ExtResource( 1 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+
+[node name="VolatileRect" type="Node2D" parent="."]
+script = ExtResource( 2 )
+Editing = true
+DebugDraw = true
+_extents = PoolByteArray( 0, 0, 0, 192, 54, 0, 0, 0, 0, 0, 0, 64, 10, 0, 0, 0 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )

@@ -22,6 +22,12 @@ namespace Volatile.GodotEngine.Rollback
         public int Mask { get; set; } = 1;
         public VoltBody Body { get; private set; }
 
+        /// <summary>
+        /// Prevents lerping from setting the body position + rotation, which
+        /// would then affect the network state of this body.
+        /// </summary>
+        protected bool stopFixedToBodySync = false;
+
         public override string _GetConfigurationWarning()
         {
             var volatileWorld = this.GetAncestor<NetworkVolatileWorld>(false);
@@ -62,7 +68,7 @@ namespace Volatile.GodotEngine.Rollback
 
         protected override void FixedTransformChanged()
         {
-            if (!Engine.EditorHint && Body != null)
+            if (!Engine.EditorHint && Body != null && !stopFixedToBodySync)
                 Body.Set(GlobalFixedPosition, GlobalFixedRotation);
             base.FixedTransformChanged();
         }
@@ -78,21 +84,57 @@ namespace Volatile.GodotEngine.Rollback
         #region Network
         public virtual void _NetworkPostprocess(Dictionary input)
         {
+            stopFixedToBodySync = true;
             GlobalFixedPosition = Body.Position;
             GlobalFixedRotation = Body.Angle;
+            stopFixedToBodySync = false;
         }
 
         public virtual void _InterpolateState(Dictionary oldState, Dictionary newState, float weight)
         {
             if (DoInterpolation)
             {
-                var oldTransform = oldState.GetVoltDeserialized<VoltTransform2D>(STATE_TRANSFORM);
-                var newTransform = newState.GetVoltDeserialized<VoltTransform2D>(STATE_TRANSFORM);
+                var oldBodyPosition = oldState.GetVoltDeserialized<VoltVector2>(STATE_BODY_POSITION);
+                var oldBodyRotation = oldState.GetVoltDeserialized<Fix64>(STATE_BODY_ROTATION);
+                var oldTransform = new VoltTransform2D(oldBodyRotation, oldBodyPosition);
+
+                var newBodyPosition = newState.GetVoltDeserialized<VoltVector2>(STATE_BODY_POSITION);
+                var newBodyRotation = newState.GetVoltDeserialized<Fix64>(STATE_BODY_ROTATION);
+                var newTransform = new VoltTransform2D(newBodyRotation, newBodyPosition);
+
+                stopFixedToBodySync = true;
                 // Okay to convert float to Fix64 here, because interpolate is client side
                 // and not synced to state at all.
                 GlobalFixedTransform = oldTransform.InterpolateWith(newTransform, (Fix64)weight);
+                stopFixedToBodySync = false;
             }
         }
+
+        public const string STATE_BODY_POSITION = "body_position";
+        public const string STATE_BODY_ROTATION = "body_rotation";
+
+        public override Dictionary _SaveState()
+        {
+            // Don't use VoltNode2D's save state
+            var state = new Dictionary();
+            state.AddVoltSerialized(STATE_BODY_POSITION, Body.Position);
+            state.AddVoltSerialized(STATE_BODY_ROTATION, Body.Angle);
+            return state;
+        }
+
+        public override void _LoadState(Dictionary state)
+        {
+            // Don't use VoltNode2D's load state
+            //base._LoadState(state);
+            var bodyPosition = state.GetVoltDeserialized<VoltVector2>(STATE_BODY_POSITION);
+            var bodyRotation = state.GetVoltDeserialized<Fix64>(STATE_BODY_ROTATION);
+            Body.Set(bodyPosition, bodyRotation);
+            stopFixedToBodySync = true;
+            GlobalFixedPosition = bodyPosition;
+            GlobalFixedRotation = bodyRotation;
+            stopFixedToBodySync = false;
+        }
+
         #endregion
     }
 }

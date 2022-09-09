@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Game/Scripts/Main.cs" type="Script" id=1]
 [ext_resource path="res://Game/Scenes/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Game/Scenes/Debris.tscn" type="PackedScene" id=8]
 [ext_resource path="res://FPSLabel.gd" type="Script" id=9]
 [ext_resource path="res://Game/Scenes/BombSpawner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Game/Scenes/DebrisCircle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Game/Scenes/DebrisRect.tscn" type="PackedScene" id=12]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -202,7 +204,8 @@ _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
 [node name="Debris3" parent="VolatileWorld" instance=ExtResource( 8 )]
 position = Vector2( 661, 341 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 149, 2, 0, 0, 0, 0, 0, 0, 85, 1, 0, 0 )
+rotation = -0.59394
+_fixedTransform = PoolByteArray( 0, 110, 40, 212, 0, 0, 0, 0, 0, 6, 188, 112, 255, 255, 255, 255, 0, 250, 67, 143, 0, 0, 0, 0, 0, 110, 40, 212, 0, 0, 0, 0, 0, 0, 0, 0, 149, 2, 0, 0, 0, 0, 0, 0, 85, 1, 0, 0 )
 
 [node name="Debris4" parent="VolatileWorld" instance=ExtResource( 8 )]
 position = Vector2( 626, 285 )
@@ -210,7 +213,8 @@ _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
 [node name="Debris5" parent="VolatileWorld" instance=ExtResource( 8 )]
 position = Vector2( 380, 322 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 124, 1, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0 )
+rotation = 0.571111
+_fixedTransform = PoolByteArray( 0, 128, 95, 215, 0, 0, 0, 0, 0, 153, 98, 138, 0, 0, 0, 0, 0, 103, 157, 117, 255, 255, 255, 255, 0, 128, 95, 215, 0, 0, 0, 0, 0, 0, 0, 0, 124, 1, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0 )
 
 [node name="Debris6" parent="VolatileWorld" instance=ExtResource( 8 )]
 position = Vector2( 300, 308 )
@@ -223,6 +227,30 @@ _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 [node name="BombSpawner2" parent="VolatileWorld" instance=ExtResource( 10 )]
 position = Vector2( 606, 172 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 94, 2, 0, 0, 0, 0, 0, 0, 172, 0, 0, 0 )
+
+[node name="DebrisCircle" parent="VolatileWorld" instance=ExtResource( 11 )]
+position = Vector2( 370, 175 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 114, 1, 0, 0, 0, 0, 0, 0, 175, 0, 0, 0 )
+
+[node name="DebrisCircle2" parent="VolatileWorld" instance=ExtResource( 11 )]
+position = Vector2( 484, 448 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 228, 1, 0, 0, 0, 0, 0, 0, 192, 1, 0, 0 )
+
+[node name="DebrisRect" parent="VolatileWorld" instance=ExtResource( 12 )]
+position = Vector2( 797, 435 )
+rotation = 0.769874
+scale = Vector2( 1, 1 )
+_fixedTransform = PoolByteArray( 0, 185, 206, 183, 0, 0, 0, 0, 0, 2, 48, 178, 0, 0, 0, 0, 0, 254, 207, 77, 255, 255, 255, 255, 0, 185, 206, 183, 0, 0, 0, 0, 0, 0, 0, 0, 29, 3, 0, 0, 0, 0, 0, 0, 179, 1, 0, 0 )
+
+[node name="DebrisRect2" parent="VolatileWorld" instance=ExtResource( 12 )]
+position = Vector2( 453, 207 )
+rotation = -0.647265
+_fixedTransform = PoolByteArray( 0, 105, 56, 204, 0, 0, 0, 0, 0, 82, 161, 101, 255, 255, 255, 255, 0, 174, 94, 154, 0, 0, 0, 0, 0, 105, 56, 204, 0, 0, 0, 0, 0, 0, 0, 0, 197, 1, 0, 0, 0, 0, 0, 0, 207, 0, 0, 0 )
+
+[node name="DebrisRect3" parent="VolatileWorld" instance=ExtResource( 12 )]
+position = Vector2( 397, 384 )
+rotation = 0.349754
+_fixedTransform = PoolByteArray( 0, 66, 128, 240, 0, 0, 0, 0, 0, 0, 185, 87, 0, 0, 0, 0, 0, 0, 71, 168, 255, 255, 255, 255, 0, 66, 128, 240, 0, 0, 0, 0, 0, 0, 254, 255, 140, 1, 0, 0, 0, 0, 0, 0, 128, 1, 0, 0 )
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/LocalButton" to="." method="OnLocalButtonPressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/OnlineButton" to="." method="OnOnlineButtonPressed"]
