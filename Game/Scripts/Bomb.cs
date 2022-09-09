@@ -1,20 +1,27 @@
+using FixMath.NET;
 using Godot;
 using Godot.Collections;
 using GodotRollbackNetcode;
 using System;
 using Volatile;
 using Volatile.GodotEngine;
+using Volatile.GodotEngine.Rollback;
 
 namespace Game
 {
     [Tool]
-    public class Bomb : VoltNode2D, INetworkSpawn, INetworkDespawn
+    public class Bomb : NetworkVoltNode2D, INetworkSpawn, INetworkDespawn
     {
-        public static Node Spawn(Node parent, VoltVector2 position, Node owner)
+        public static Dictionary Construct(VoltVector2 position, string ownerPath)
         {
-            return SyncManager.Global.Spawn(nameof(Bomb), parent, GD.Load<PackedScene>("res://Game/Scenes/Bomb.tscn"), new { position = VoltType.Serialize(position), ownerPath = owner.GetPath().ToString() }.ToGodotDict());
+            return new Dictionary()
+            {
+                [SPAWN_POSITION] = VoltType.Serialize(position),
+                [SPAWN_OWNER_PATH] = ownerPath
+            };
         }
 
+        public const string SPAWN_OWNER_PATH = "owner_path";
         public event Action Exploded;
         public NodePath BombOwnerPath { get; private set; }
 
@@ -39,10 +46,10 @@ namespace Game
             return node.GetPath().ToString() == BombOwnerPath;
         }
 
-        public void _NetworkSpawn(Dictionary data)
+        public override void _NetworkSpawn(Dictionary data)
         {
-            GlobalFixedPosition = VoltType.Deserialize<VoltVector2>((byte[])data["position"]);
-            BombOwnerPath = (string)data["ownerPath"];
+            base._NetworkSpawn(data);
+            BombOwnerPath = data.Get<string>(SPAWN_OWNER_PATH);
             explosionTimer.Start();
             animationPlayer.Play("Tick");
         }
@@ -50,7 +57,10 @@ namespace Game
         private void OnExplosionTimerTimeout()
         {
             Exploded?.Invoke();
-            SyncManager.Global.Spawn("Explosion", GetParent(), explosionPrefab, new { position = VoltType.Serialize(GlobalFixedPosition) }.ToGodotDict());
+
+            SyncManager.Global.Spawn(nameof(Explosion), GetParent(), explosionPrefab,
+                Explosion.Construct(GlobalFixedPosition)
+            );
             SyncManager.Global.Despawn(this);
         }
 

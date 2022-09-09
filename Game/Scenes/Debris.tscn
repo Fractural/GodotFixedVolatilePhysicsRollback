@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/GodotFixedVolatilePhysics/Core/VolatileShapes/VolatilePolygon.cs" type="Script" id=1]
+[ext_resource path="res://addons/GodotFixedVolatilePhysicsRollback/Core/NetworkVolatileRigidBody.cs" type="Script" id=2]
+
+[node name="Debris" type="Node2D" groups=["network_sync"]]
+script = ExtResource( 2 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+
+[node name="VolatilePolygon" type="Node2D" parent="."]
+script = ExtResource( 1 )
+Editing = true
+DebugDraw = true
+_points = PoolByteArray( 5, 0, 0, 0, 16, 0, 0, 0, 128, 10, 0, 0, 0, 0, 0, 0, 128, 225, 255, 255, 255, 16, 0, 0, 0, 0, 231, 255, 255, 255, 0, 0, 0, 128, 243, 255, 255, 255, 16, 0, 0, 0, 0, 242, 255, 255, 255, 0, 0, 0, 0, 18, 0, 0, 0, 16, 0, 0, 0, 128, 13, 0, 0, 0, 0, 0, 0, 128, 27, 0, 0, 0, 16, 0, 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 0, 250, 255, 255, 255 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )

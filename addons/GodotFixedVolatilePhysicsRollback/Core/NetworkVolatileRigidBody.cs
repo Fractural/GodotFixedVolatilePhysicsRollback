@@ -5,7 +5,7 @@ using Godot.Collections;
 namespace Volatile.GodotEngine.Rollback
 {
     [Tool]
-    public class NetworkVolatileRigidBody : NetworkVolatileBody
+    public class NetworkVolatileRigidBody : NetworkVolatileBodyTest
     {
         protected override VoltBody CreateBody(VoltWorld world, VoltShape[] shapes)
             => world.CreateDynamicBody(GlobalFixedPosition, GlobalFixedRotation, shapes, Layer, Mask);
@@ -39,13 +39,21 @@ namespace Volatile.GodotEngine.Rollback
         #region Network
         public const string STATE_LINEAR_VELOCITY = "linear_velocity";
         public const string STATE_ANGULAR_VELOCITY = "angular_velocity";
+        public const string STATE_FORCE = "force";
+        public const string STATE_TORQUE = "torque";
+        public const string STATE_BIAS_VELOCITY = "bias_velocity";
+        public const string STATE_BIAS_ROTATION = "bias_rotation";
 
         public override Dictionary _SaveState()
         {
-            var dict = base._SaveState();
-            dict.AddVoltSerialized(STATE_LINEAR_VELOCITY, Body.LinearVelocity);
-            dict.AddVoltSerialized(STATE_ANGULAR_VELOCITY, Body.AngularVelocity);
-            return dict;
+            var state = base._SaveState();
+            state.AddVoltSerialized(STATE_LINEAR_VELOCITY, Body.LinearVelocity);
+            state.AddVoltSerialized(STATE_ANGULAR_VELOCITY, Body.AngularVelocity);
+            state.AddVoltSerialized(STATE_FORCE, Body.Force);
+            state.AddVoltSerialized(STATE_TORQUE, Body.Torque);
+            state.AddVoltSerialized(STATE_BIAS_VELOCITY, Body.BiasVelocity);
+            state.AddVoltSerialized(STATE_BIAS_ROTATION, Body.BiasRotation);
+            return state;
         }
 
         public override void _LoadState(Dictionary state)
@@ -53,6 +61,12 @@ namespace Volatile.GodotEngine.Rollback
             base._LoadState(state);
             Body.LinearVelocity = state.GetVoltDeserialized<VoltVector2>(STATE_LINEAR_VELOCITY);
             Body.AngularVelocity = state.GetVoltDeserialized<Fix64>(STATE_ANGULAR_VELOCITY);
+            Body.SetForce(
+                state.GetVoltDeserialized<VoltVector2>(STATE_FORCE),
+                state.GetVoltDeserialized<Fix64>(STATE_TORQUE),
+                state.GetVoltDeserialized<VoltVector2>(STATE_BIAS_VELOCITY),
+                state.GetVoltDeserialized<Fix64>(STATE_BIAS_ROTATION)
+            );
         }
         #endregion
     }

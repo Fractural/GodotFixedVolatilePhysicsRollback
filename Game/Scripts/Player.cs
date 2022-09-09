@@ -12,6 +12,9 @@ namespace Game
     [Tool]
     public class Player : NetworkVolatileKinematicBody, IGetLocalInput, INetworkProcess, INetworkSerializable, IPredictRemoteInput, IInterpolateState
     {
+        public const string STATE_TELEPORTING = "teleporting";
+        public const string STATE_SPEED = "speed";
+
         [Export]
         PackedScene bombPrefab;
         [Export]
@@ -29,7 +32,6 @@ namespace Game
 
         public override void _Ready()
         {
-            ProcessSelf = false;
             base._Ready();
             if (Engine.EditorHint) return;
 
@@ -59,7 +61,9 @@ namespace Game
 
         private void OnBombExploded()
         {
-            SyncManager.Global.Spawn("Explosion", GetParent(), explosionPrefab, new { position = VoltType.Serialize(GlobalFixedPosition) }.ToGodotDict());
+            SyncManager.Global.Spawn(nameof(Explosion), GetParent(), explosionPrefab,
+                Explosion.Construct(GlobalFixedPosition)
+            );
         }
 
         public Dictionary _GetLocalInput()
@@ -77,8 +81,9 @@ namespace Game
             return input;
         }
 
-        public void _NetworkProcess(Dictionary input)
+        public override void _NetworkProcess(Dictionary input)
         {
+            base._NetworkProcess(input);
             var inputVector = input.Get("input_vector", Vector2.Zero).ToVoltVector2();
             if (inputVector != VoltVector2.Zero)
             {
@@ -96,7 +101,9 @@ namespace Game
             GlobalFixedRotation = Body.Angle;
 
             if (input.Get("drop_bomb", false))
-                Bomb.Spawn(GetParent(), GlobalFixedPosition, this);
+                SyncManager.Global.Spawn(nameof(Bomb), GetParent(), bombPrefab,
+                    Bomb.Construct(GlobalFixedPosition, GetPath())
+                );
             if (input.Get("teleport", false))
             {
                 var position = new VoltVector2(
@@ -110,22 +117,20 @@ namespace Game
                 teleporting = false;
         }
 
-        public Dictionary _SaveState()
+        public override Dictionary _SaveState()
         {
-            var state = new Dictionary();
-
-            state["transform"] = VoltType.Serialize(FixedTransform);
-            state["speed"] = VoltType.Serialize(Speed);
-            state["teleporting"] = teleporting;
+            var state = base._SaveState();
+            state.AddVoltSerialized(STATE_SPEED, Speed);
+            state[STATE_TELEPORTING] = teleporting;
 
             return state;
         }
 
-        public void _LoadState(Dictionary state)
+        public override void _LoadState(Dictionary state)
         {
-            FixedTransform = VoltType.Deserialize<VoltTransform2D>((byte[])state["transform"]);
-            Speed = VoltType.Deserialize<Fix64>((byte[])state["speed"]);
-            teleporting = (bool)state["teleporting"];
+            base._LoadState(state);
+            Speed = state.GetVoltDeserialized<Fix64>(STATE_SPEED);
+            teleporting = state.Get<bool>(STATE_TELEPORTING);
         }
 
         public Dictionary _PredictRemoteInput(Dictionary previousInput, int ticksSinceRealInput)
@@ -137,14 +142,14 @@ namespace Game
             return input;
         }
 
-        public void _InterpolateState(Dictionary oldState, Dictionary newState, float weight)
+        public override void _InterpolateState(Dictionary oldState, Dictionary newState, float weight)
         {
+            // Don't interpolate body if we're teleporting
             if (oldState.Get("teleporting", false) || newState.Get("teleporting", false))
                 return;
-            var oldTransform = VoltType.Deserialize<VoltTransform2D>((byte[])oldState["transform"]);
-            var newTransform = VoltType.Deserialize<VoltTransform2D>((byte[])newState["transform"]);
 
-            GlobalFixedTransform = oldTransform.InterpolateWith(newTransform, (Fix64)weight);
+            // Interpolate the volatile body
+            base._InterpolateState(oldState, newState, weight);
         }
 
         public void Seed(NetworkRandomNumberGenerator johnny)

@@ -9,8 +9,6 @@
 
 [node name="Player" type="Node2D" groups=["network_sync"]]
 script = ExtResource( 2 )
-DoInterpolation = false
-ProcessSelf = false
 bombPrefab = ExtResource( 4 )
 explosionPrefab = ExtResource( 5 )
 _speed = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0 )
