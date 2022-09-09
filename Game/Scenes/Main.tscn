@@ -145,12 +145,10 @@ _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 
 [node name="ClientPlayer" parent="VolatileWorld" instance=ExtResource( 2 )]
 position = Vector2( 193, 289 )
-_speed = PoolByteArray(  )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 193, 0, 0, 0, 0, 0, 0, 0, 33, 1, 0, 0 )
 
 [node name="ServerPlayer" parent="VolatileWorld" instance=ExtResource( 2 )]
 position = Vector2( 795, 287 )
-_speed = PoolByteArray(  )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 27, 3, 0, 0, 0, 0, 0, 0, 31, 1, 0, 0 )
 
 [node name="Level" type="Node2D" parent="VolatileWorld"]

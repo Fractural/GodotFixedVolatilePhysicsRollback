@@ -11,7 +11,7 @@
 script = ExtResource( 2 )
 bombPrefab = ExtResource( 4 )
 explosionPrefab = ExtResource( 5 )
-_speed = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0 )
+_speed = PoolByteArray( 0, 0, 0, 0, 10, 0, 0, 0 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]

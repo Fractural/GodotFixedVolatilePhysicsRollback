@@ -99,9 +99,8 @@ namespace Volatile.GodotEngine.Rollback
             }
         }
 
-        public override void _NetworkProcess(Dictionary input)
+        public virtual void _NetworkProcess(Dictionary input)
         {
-            base._NetworkProcess(input);
             if (AutoQuery)
             {
                 foreach (var oldCollidingBody in PrevCollidingWith)
