@@ -3,7 +3,7 @@
 namespace Volatile.GodotEngine.Rollback
 {
     [Tool]
-    public class NetworkVolatileKinematicBody : NetworkVolatileBody
+    public class NetworkVolatileKinematicBody : NetworkVolatileBody, IVolatileKinematicBody
     {
         protected override VoltBody CreateBody(VoltWorld world, VoltShape[] shapes)
             => world.CreateKinematicBody(GlobalFixedPosition, GlobalFixedRotation, shapes, Layer, Mask);

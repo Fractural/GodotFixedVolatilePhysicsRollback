@@ -21,6 +21,9 @@ namespace Volatile.GodotEngine.Rollback.Plugin
             Plugin.AddCustomType(nameof(NetworkVolatileRigidBody), nameof(Node2D),
                 GD.Load<CSharpScript>("res://addons/GodotFixedVolatilePhysicsRollback/Core/NetworkVolatileRigidBody.cs"),
                 Plugin.AssetsRegistry.LoadAsset<Texture>("res://addons/GodotFixedVolatilePhysicsRollback/Assets/NetworkVoltRigidBody.svg"));
+            Plugin.AddCustomType(nameof(NetworkSimpleForce), nameof(Node2D),
+                GD.Load<CSharpScript>("res://addons/GodotFixedVolatilePhysicsRollback/Core/NetworkSimpleForce.cs"),
+                Plugin.AssetsRegistry.LoadAsset<Texture>("res://addons/GodotFixedVolatilePhysicsRollback/Assets/NetworkSimpleForce.svg"));
         }
 
         public override void Unload()
@@ -29,6 +32,7 @@ namespace Volatile.GodotEngine.Rollback.Plugin
             Plugin.RemoveCustomType(nameof(NetworkVolatileArea));
             Plugin.RemoveCustomType(nameof(NetworkVolatileKinematicBody));
             Plugin.RemoveCustomType(nameof(NetworkVolatileRigidBody));
+            Plugin.RemoveCustomType(nameof(NetworkSimpleForce));
         }
     }
 }

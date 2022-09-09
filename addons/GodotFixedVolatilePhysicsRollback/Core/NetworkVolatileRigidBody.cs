@@ -5,7 +5,7 @@ using Godot.Collections;
 namespace Volatile.GodotEngine.Rollback
 {
     [Tool]
-    public class NetworkVolatileRigidBody : NetworkVolatileBody
+    public class NetworkVolatileRigidBody : NetworkVolatileBody, IVolatileRigidBody
     {
         protected override VoltBody CreateBody(VoltWorld world, VoltShape[] shapes)
             => world.CreateDynamicBody(GlobalFixedPosition, GlobalFixedRotation, shapes, Layer, Mask);
