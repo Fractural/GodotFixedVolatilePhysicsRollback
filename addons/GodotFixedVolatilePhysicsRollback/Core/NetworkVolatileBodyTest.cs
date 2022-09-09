@@ -8,7 +8,7 @@ using System.Linq;
 namespace Volatile.GodotEngine.Rollback
 {
     [Tool]
-    public abstract class NetworkVolatileBody : NetworkVoltNode2D, INetworkProcess, IInterpolateState
+    public abstract class NetworkVolatileBodyTest : NetworkVoltNode2D, INetworkPostProcess, IInterpolateState
     {
         public delegate void BodyCollidedDelegate(VolatileBody body);
         public event BodyCollidedDelegate BodyCollided;
@@ -76,7 +76,8 @@ namespace Volatile.GodotEngine.Rollback
         protected abstract VoltBody CreateBody(VoltWorld world, VoltShape[] shapes);
 
         #region Network
-        public virtual void _NetworkProcess(Dictionary input)
+
+        public void _NetworkPostprocess(Dictionary input)
         {
             GlobalFixedPosition = Body.Position;
             GlobalFixedRotation = Body.Angle;
@@ -86,11 +87,11 @@ namespace Volatile.GodotEngine.Rollback
         {
             if (DoInterpolation)
             {
-                var oldTransform = oldState.GetVoltDeserialized<VoltTransform2D>(STATE_TRANSFORM);
-                var newTransform = newState.GetVoltDeserialized<VoltTransform2D>(STATE_TRANSFORM);
-                // Okay to convert float to Fix64 here, because interpolate is client side
-                // and not synced to state at all.
-                GlobalFixedTransform = oldTransform.InterpolateWith(newTransform, (Fix64)weight);
+                //var oldTransform = oldState.GetVoltDeserialized<VoltTransform2D>(STATE_TRANSFORM);
+                //var newTransform = newState.GetVoltDeserialized<VoltTransform2D>(STATE_TRANSFORM);
+                //// Okay to convert float to Fix64 here, because interpolate is client side
+                //// and not synced to state at all.
+                //GlobalFixedTransform = oldTransform.InterpolateWith(newTransform, (Fix64)weight);
             }
         }
         #endregion

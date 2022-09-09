@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "CanvasLayer",
+"class": "FpsLabel",
+"language": "GDScript",
+"path": "res://FPSLabel.gd"
+}, {
 "base": "AnimationPlayer",
 "class": "NetworkAnimationPlayer",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://addons/godot-rollback-netcode/NetworkTimer.gd"
 } ]
 _global_script_class_icons={
+"FpsLabel": "",
 "NetworkAnimationPlayer": "",
 "NetworkRandomNumberGenerator": "",
 "NetworkTimer": ""

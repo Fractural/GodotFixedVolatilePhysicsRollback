@@ -16,6 +16,12 @@ namespace Volatile.GodotEngine.Rollback
 
         public const string STATE_TRANSFORM = "transform";
 
+        public override void _EnterTree()
+        {
+            base._EnterTree();
+            AddToGroup("network_sync");
+        }
+
         public virtual void _NetworkSpawn(Dictionary data)
         {
             if (data.Contains(SPAWN_TRANSFORM))
@@ -23,9 +29,9 @@ namespace Volatile.GodotEngine.Rollback
             else
             {
                 if (data.Contains(SPAWN_POSITION))
-                    FixedPosition = data.GetVoltDeserialized<VoltVector2>(SPAWN_ROTATION);
+                    GlobalFixedPosition = data.GetVoltDeserialized<VoltVector2>(SPAWN_POSITION);
                 if (data.Contains(SPAWN_ROTATION))
-                    FixedRotation = data.GetVoltDeserialized<Fix64>(SPAWN_ROTATION);
+                    GlobalFixedRotation = data.GetVoltDeserialized<Fix64>(SPAWN_ROTATION);
                 if (data.Contains(SPAWN_SCALE))
                     FixedScale = data.GetVoltDeserialized<VoltVector2>(SPAWN_SCALE);
             }

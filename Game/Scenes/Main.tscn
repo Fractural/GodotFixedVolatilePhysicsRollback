@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Game/Scripts/Main.cs" type="Script" id=1]
 [ext_resource path="res://Game/Scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,9 +7,15 @@
 [ext_resource path="res://addons/GodotFixedVolatilePhysics/Core/VolatileShapes/VolatileRect.cs" type="Script" id=5]
 [ext_resource path="res://addons/GodotFixedVolatilePhysics/Core/VoltNode2D.cs" type="Script" id=6]
 [ext_resource path="res://addons/GodotFixedVolatilePhysics/Core/VolatileBodies/VolatileStaticBody.cs" type="Script" id=7]
+[ext_resource path="res://Game/Scenes/Debris.tscn" type="PackedScene" id=8]
+[ext_resource path="res://FPSLabel.gd" type="Script" id=9]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="FPSLabel" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
+position = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -131,7 +137,7 @@ text = "CSharp Multiplayer"
 [node name="Johnny" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="VolatileWorld" type="Node2D" parent="."]
+[node name="VolatileWorld" type="Node2D" parent="." groups=["network_sync"]]
 script = ExtResource( 4 )
 ProcessSelf = false
 DebugDraw = true
@@ -186,6 +192,10 @@ Editing = true
 DebugDraw = true
 _extents = PoolByteArray( 0, 0, 232, 137, 38, 0, 0, 0, 0, 0, 46, 90, 229, 0, 0, 0 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 217, 3, 0, 0, 0, 0, 0, 0, 45, 1, 0, 0 )
+
+[node name="Debris" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 694, 288 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 182, 2, 0, 0, 0, 0, 0, 0, 32, 1, 0, 0 )
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/LocalButton" to="." method="OnLocalButtonPressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/OnlineButton" to="." method="OnOnlineButtonPressed"]
