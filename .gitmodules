@@ -2,10 +2,6 @@
 	path = addons/FracturalCommons
 	url = https://github.com/Fractural/FracturalCommons.git
 	branch = release
-[submodule "addons/GodotFixedVolatilePhysics"]
-	path = addons/GodotFixedVolatilePhysics
-	url = https://github.com/Fractural/GodotFixedVolatilePhysics.git
-	branch = release
 [submodule "addons/GodotRollbackNetcodeMono"]
 	path = addons/GodotRollbackNetcodeMono
 	url = https://github.com/Fractural/GodotRollbackNetcodeMono.git
@@ -14,3 +10,7 @@
 	path = addons/godot-rollback-netcode
 	url = https://github.com/Fractural/GodotRollbackNetcodeMono.git
 	branch = godot-rollback-netcode
+[submodule "addons/GodotFixedVolatilePhysics"]
+	path = addons/GodotFixedVolatilePhysics
+	url = https://github.com/Fractural/GodotFixedVolatilePhysics.git
+	branch = release
