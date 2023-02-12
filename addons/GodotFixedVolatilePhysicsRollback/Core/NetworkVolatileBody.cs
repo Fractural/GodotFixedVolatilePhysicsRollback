@@ -35,7 +35,7 @@ namespace Volatile.GodotEngine.Rollback
                 return $"This node must be a descendant of a {nameof(NetworkVolatileWorld)}.";
 
             var shapes = this.GetDescendants<VolatileShape>();
-            if (shapes.Count == 0)
+            if (shapes.Length == 0)
                 return "This node has no shape, so it can't collide or interact with other objects.\nConsider addinga VolatileShape (VolatilePolygon, VolatileRect, VolatileRect) as a child to define its shape.";
             return "";
         }
@@ -55,7 +55,7 @@ namespace Volatile.GodotEngine.Rollback
                 return;
 
             var shapeNodes = this.GetDescendants<VolatileShape>();
-            if (shapeNodes.Count == 0)
+            if (shapeNodes.Length == 0)
                 return;
 
             var world = volatileWorldNode.World;

@@ -22,3 +22,6 @@ obj/
 
 # Visual studio
 .vs/
+
+# Android
+android/
