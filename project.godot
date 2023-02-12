@@ -44,7 +44,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GodotFixedVolatilePhysicsRollback"
-run/main_scene="res://Game/Scenes/Main.tscn"
+run/main_scene="res://Game/Scenes/AlternativeMain.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -61,6 +61,11 @@ multirun/window_distance=1270
 multirun/add_custom_args=true
 multirun/first_window_args="listen"
 multirun/other_window_args="join"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
@@ -138,13 +143,15 @@ player1_teleport={
  ]
 }
 
+[mono]
+
+project/assembly_name="GodotFixedVolatilePhysicsRollback"
+
 [network]
 
 rollback/interpolation=true
 rollback/spawn_manager/reuse_despawned_nodes=true
 rollback/classes/message_serializer="res://Game/Scripts/CustomMessageSerializer.cs"
-rollback/debug/rollback_ticks=1
-rollback/debug/random_rollback_ticks=3
 rollback/debug/physics_process_msecs=20.0
 rollback/debug/process_msecs=20.0
 rollback/log_inspector/replay_match_scene_path="res://Game/Scenes/Main.tscn"

@@ -125,7 +125,6 @@ namespace Volatile.GodotEngine.Rollback
         public override void _LoadState(Dictionary state)
         {
             // Don't use VoltNode2D's load state
-            //base._LoadState(state);
             var bodyPosition = state.GetVoltDeserialized<VoltVector2>(STATE_BODY_POSITION);
             var bodyRotation = state.GetVoltDeserialized<Fix64>(STATE_BODY_ROTATION);
             Body.Set(bodyPosition, bodyRotation);

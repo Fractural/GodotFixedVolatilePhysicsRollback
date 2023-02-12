@@ -33,6 +33,7 @@ jobs:
           pushd release
           zip -r ../Release.zip *
           popd
+      
       - name: Upload Release
         uses: actions/upload-artifact@v2
         with:

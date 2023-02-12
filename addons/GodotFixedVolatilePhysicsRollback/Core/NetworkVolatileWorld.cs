@@ -17,22 +17,8 @@ namespace Volatile.GodotEngine.Rollback
 
         public void _NetworkProcess(Dictionary input)
         {
-            foreach (var body in World.Bodies)
-            {
-                if (body.IsDynamic)
-                {
-                    var dynamicBody = body;
-                }
-            }
             World.Update();
             Update();
-            foreach (var body in World.Bodies)
-            {
-                if (body.IsDynamic)
-                {
-                    var dynamicBody = body;
-                }
-            }
         }
     }
 }

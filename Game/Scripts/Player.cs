@@ -66,9 +66,20 @@ namespace Game
             );
         }
 
+
+        private Vector2 GetSimulatedVector(string left, string right, string up, string down)
+        {
+            Vector2 result = Vector2.Zero;
+            if (Input.IsActionPressed(left)) result.x -= 1;
+            if (Input.IsActionPressed(right)) result.x += 1;
+            if (Input.IsActionPressed(up)) result.y -= 1;
+            if (Input.IsActionPressed(down)) result.y += 1;
+            return result;
+        }
+
         public Dictionary _GetLocalInput()
         {
-            var inputVector = Input.GetVector(inputPrefix + "left", inputPrefix + "right", inputPrefix + "up", inputPrefix + "down");
+            var inputVector = GetSimulatedVector(inputPrefix + "left", inputPrefix + "right", inputPrefix + "up", inputPrefix + "down");
 
             var input = new Dictionary();
             if (inputVector != Vector2.Zero)

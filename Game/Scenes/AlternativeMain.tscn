@@ -144,7 +144,7 @@ margin_left = 10.0
 margin_top = 8.0
 margin_right = 129.0
 margin_bottom = 22.0
-text = "CSharp Multiplayer"
+text = "CSharp Multiplayer Alt"
 
 [node name="IPLabel" type="Label" parent="CanvasLayer"]
 margin_left = 11.0
@@ -210,32 +210,6 @@ DebugDraw = true
 _extents = PoolByteArray( 0, 0, 232, 137, 38, 0, 0, 0, 0, 0, 46, 90, 229, 0, 0, 0 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 217, 3, 0, 0, 0, 0, 0, 0, 45, 1, 0, 0 )
 
-[node name="Debris" parent="VolatileWorld" instance=ExtResource( 8 )]
-position = Vector2( 694, 288 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 182, 2, 0, 0, 0, 0, 0, 0, 32, 1, 0, 0 )
-
-[node name="Debris2" parent="VolatileWorld" instance=ExtResource( 8 )]
-position = Vector2( 348, 262 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 92, 1, 0, 0, 0, 0, 0, 0, 6, 1, 0, 0 )
-
-[node name="Debris3" parent="VolatileWorld" instance=ExtResource( 8 )]
-position = Vector2( 661, 341 )
-rotation = -0.59394
-_fixedTransform = PoolByteArray( 0, 110, 40, 212, 0, 0, 0, 0, 0, 6, 188, 112, 255, 255, 255, 255, 0, 250, 67, 143, 0, 0, 0, 0, 0, 110, 40, 212, 0, 0, 0, 0, 0, 0, 0, 0, 149, 2, 0, 0, 0, 0, 0, 0, 85, 1, 0, 0 )
-
-[node name="Debris4" parent="VolatileWorld" instance=ExtResource( 8 )]
-position = Vector2( 626, 285 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 114, 2, 0, 0, 0, 0, 0, 0, 29, 1, 0, 0 )
-
-[node name="Debris5" parent="VolatileWorld" instance=ExtResource( 8 )]
-position = Vector2( 380, 322 )
-rotation = 0.571111
-_fixedTransform = PoolByteArray( 0, 128, 95, 215, 0, 0, 0, 0, 0, 153, 98, 138, 0, 0, 0, 0, 0, 103, 157, 117, 255, 255, 255, 255, 0, 128, 95, 215, 0, 0, 0, 0, 0, 0, 0, 0, 124, 1, 0, 0, 0, 0, 0, 0, 66, 1, 0, 0 )
-
-[node name="Debris6" parent="VolatileWorld" instance=ExtResource( 8 )]
-position = Vector2( 300, 308 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 44, 1, 0, 0, 0, 0, 0, 0, 52, 1, 0, 0 )
-
 [node name="BombSpawner" parent="VolatileWorld" instance=ExtResource( 10 )]
 position = Vector2( 327, 423 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 71, 1, 0, 0, 0, 0, 0, 0, 167, 1, 0, 0 )
@@ -244,29 +218,49 @@ _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 position = Vector2( 606, 172 )
 _fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 94, 2, 0, 0, 0, 0, 0, 0, 172, 0, 0, 0 )
 
-[node name="DebrisCircle" parent="VolatileWorld" instance=ExtResource( 11 )]
-position = Vector2( 370, 175 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 114, 1, 0, 0, 0, 0, 0, 0, 175, 0, 0, 0 )
-
-[node name="DebrisCircle2" parent="VolatileWorld" instance=ExtResource( 11 )]
-position = Vector2( 484, 448 )
-_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 228, 1, 0, 0, 0, 0, 0, 0, 192, 1, 0, 0 )
-
 [node name="DebrisRect" parent="VolatileWorld" instance=ExtResource( 12 )]
-position = Vector2( 797, 435 )
-rotation = 0.769874
-scale = Vector2( 1, 1 )
-_fixedTransform = PoolByteArray( 0, 185, 206, 183, 0, 0, 0, 0, 0, 2, 48, 178, 0, 0, 0, 0, 0, 254, 207, 77, 255, 255, 255, 255, 0, 185, 206, 183, 0, 0, 0, 0, 0, 0, 0, 0, 29, 3, 0, 0, 0, 0, 0, 0, 179, 1, 0, 0 )
+position = Vector2( 782, 452 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 14, 3, 0, 0, 0, 0, 0, 0, 196, 1, 0, 0 )
 
 [node name="DebrisRect2" parent="VolatileWorld" instance=ExtResource( 12 )]
-position = Vector2( 453, 207 )
-rotation = -0.647265
-_fixedTransform = PoolByteArray( 0, 105, 56, 204, 0, 0, 0, 0, 0, 82, 161, 101, 255, 255, 255, 255, 0, 174, 94, 154, 0, 0, 0, 0, 0, 105, 56, 204, 0, 0, 0, 0, 0, 0, 0, 0, 197, 1, 0, 0, 0, 0, 0, 0, 207, 0, 0, 0 )
+position = Vector2( 340, 158 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 84, 1, 0, 0, 0, 0, 0, 0, 158, 0, 0, 0 )
 
-[node name="DebrisRect3" parent="VolatileWorld" instance=ExtResource( 12 )]
-position = Vector2( 397, 384 )
-rotation = 0.349754
-_fixedTransform = PoolByteArray( 0, 66, 128, 240, 0, 0, 0, 0, 0, 0, 185, 87, 0, 0, 0, 0, 0, 0, 71, 168, 255, 255, 255, 255, 0, 66, 128, 240, 0, 0, 0, 0, 0, 0, 254, 255, 140, 1, 0, 0, 0, 0, 0, 0, 128, 1, 0, 0 )
+[node name="Debris" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 674, 409 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 162, 2, 0, 0, 0, 0, 0, 0, 153, 1, 0, 0 )
+
+[node name="Debris2" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 334, 289 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 78, 1, 0, 0, 0, 0, 0, 0, 33, 1, 0, 0 )
+
+[node name="Debris3" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 315, 226 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 59, 1, 0, 0, 0, 0, 0, 0, 226, 0, 0, 0 )
+
+[node name="Debris4" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 681, 244 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 169, 2, 0, 0, 0, 0, 0, 0, 244, 0, 0, 0 )
+
+[node name="Debris5" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 774, 373 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 6, 3, 0, 0, 0, 0, 0, 0, 117, 1, 0, 0 )
+
+[node name="Debris6" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 235, 204 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 235, 0, 0, 0, 0, 0, 0, 0, 204, 0, 0, 0 )
+
+[node name="Debris7" parent="VolatileWorld" instance=ExtResource( 8 )]
+position = Vector2( 598, 360 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 86, 2, 0, 0, 0, 0, 0, 0, 104, 1, 0, 0 )
+
+[node name="DebrisCircle" parent="VolatileWorld" instance=ExtResource( 11 )]
+position = Vector2( 261, 259 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0, 3, 1, 0, 0 )
+
+[node name="DebrisCircle2" parent="VolatileWorld" instance=ExtResource( 11 )]
+position = Vector2( 643, 305 )
+_fixedTransform = PoolByteArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 131, 2, 0, 0, 0, 0, 0, 0, 49, 1, 0, 0 )
 
 [node name="TouchControls" type="CanvasLayer" parent="."]
 
